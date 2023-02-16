@@ -14,8 +14,8 @@ pipeline {
         } 
            steps {
                sh '''
-                 until docker container ls ; do sleep 3 ;done && docker build -t ${dockerhub_USR}/amarchanddargad/argo-images:customers-${GIT_COMMIT} ./customers/
-                 docker login -u ${dockerhub_USR} -p ${dockerhub_PSW} && docker push ${dockerhub_USR}/amarchanddargad/argo-images:customers-${GIT_COMMIT}
+                 until docker container ls ; do sleep 3 ;done && docker build -t ${dockerhub_USR}/argo-images:customers-${GIT_COMMIT} ./customers/
+                 docker login -u ${dockerhub_USR} -p ${dockerhub_PSW} && docker push ${dockerhub_USR}/argo-images:customers-${GIT_COMMIT}
                  '''
            }
         }
@@ -33,7 +33,7 @@ pipeline {
                      git config --global user.email "chanddargad@gmail.com" 
                      git checkout argocd
                      git pull origin argocd
-                     export image_tag="${dockerhub_USR}/amarchanddargad/argo-images:customers-${GIT_COMMIT}" 
+                     export image_tag="${dockerhub_USR}/argo-images:customers-${GIT_COMMIT}" 
                      yq eval '.spec.template.spec.containers[0].image = env(image_tag)' -i ./manifests/customers.yaml
                      git add . 
                      git commit -m "Updated image tag for customers" 
