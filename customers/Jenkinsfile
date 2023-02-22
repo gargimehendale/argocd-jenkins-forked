@@ -14,8 +14,8 @@ pipeline {
         } 
            steps {
                sh '''
-                 until docker container ls ; do sleep 3 ;done && docker build -t ${dockerhub_USR}/argo-images:customers-${GIT_COMMIT} ./customers/
-                 docker login -u ${dockerhub_USR} -p ${dockerhub_PSW} && docker push ${dockerhub_USR}/argo-images:customers-${GIT_COMMIT}
+                 until docker container ls ; do sleep 3 ;done && docker build -t ${dockerhub_USR}/argo-customer-images:customers-${GIT_COMMIT} ./customers/
+                 docker login -u ${dockerhub_USR} -p ${dockerhub_PSW} && docker push ${dockerhub_USR}/argo-customer-images:customers-${GIT_COMMIT}
                  '''
            }
         }
