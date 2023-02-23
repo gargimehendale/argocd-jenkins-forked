@@ -20,5 +20,6 @@ spec:
       containers:
       - image: amarchanddargad/argo-customer-images
         name: argo-customer-images
-        resources: {}
-status: {}
+        ports:
+        - containerPort: 3000
+          name: customer-port
