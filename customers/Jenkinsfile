@@ -20,7 +20,7 @@ pipeline {
                      git config --global user.name "Amar Chand"
                      git checkout argocd
                      git pull origin argocd
-                     export image_tag="${dockerhub_USR}/argo-images:customers-${GIT_COMMIT}" 
+                     export image_tag="${dockerhub_USR}/argo-customer-images:customers-${GIT_COMMIT}" 
                      yq eval '.spec.template.spec.containers[0].image = env(image_tag)' -i ./argo-applications/customers/deployment.yaml
                      git add . 
                      git commit -m "Updated image tag for customers" 
