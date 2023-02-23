@@ -21,7 +21,8 @@ spec:
         fsGroup: 1000
         runAsUser: 1000
       containers:
-      - image: amarchanddargad/custom-jenkins:docker
+      - image: amarchanddargad/custom-jenkins:docker-yq
+        imagePullPolicy: IfNotPresent
         name: jenkins
         ports:
         - containerPort: 8080
