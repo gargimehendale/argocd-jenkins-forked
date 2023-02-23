@@ -6,7 +6,7 @@ metadata:
 spec:
   source:
     repoURL: https://github.com/amar-chand/argocd-jenkins.git
-    targetRevision: HEAD
+    targetRevision: argocd
     path: argo-applications/customers/
   destination:
     server: https://kubernetes.default.svc
