@@ -18,7 +18,7 @@ spec:
         app: customers
     spec:
       containers:
-        - image: amarchanddargad/argo-images:customers-50c5201be2dd50cf41c7d9076170783c4e030232
+        - image: amarchanddargad/argo-customer-images:customers-a49e7fc252135b3cd5854814657d2e40b4876d04
           name: argo-customer-images
           resources: {}
 status: {}
