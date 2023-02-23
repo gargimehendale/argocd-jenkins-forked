@@ -5,13 +5,7 @@ pipeline {
       dockerhub = credentials('dockerhub')
     }
      stages {
-        stage('build') {
-          when {
-           allOf {
-            changeset "customers/**"
-            not { changeset pattern: "customers/Jenkinsfile" }
-          }
-        } 
+        stage('build') { 
            steps {
                sh '''
                  until docker container ls ; do sleep 3 ;done && docker build -t ${dockerhub_USR}/argo-customer-images:customers-${GIT_COMMIT} ./customers/
@@ -20,14 +14,6 @@ pipeline {
            }
         }
        stage('deploy') {
-        
-          when {
-           allOf {
-            changeset "customers/**"
-            not { changeset pattern: "customers/Jenkinsfile" }
-          }
-        } 
-
            steps {
                sh '''
                      git config --global user.email "chanddargad@gmail.com" 
