@@ -16,7 +16,8 @@ pipeline {
        stage('deploy') {
            steps {
                sh '''
-                     git config --global user.email "chanddargad@gmail.com" 
+                     git config --global user.email "chanddargad@gmail.com"
+                     git config --global user.name "Amar Chand"
                      git checkout argocd
                      git pull origin argocd
                      export image_tag="${dockerhub_USR}/argo-images:customers-${GIT_COMMIT}" 
