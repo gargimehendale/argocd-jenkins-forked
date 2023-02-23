@@ -18,7 +18,11 @@ spec:
         app: web-frontend
     spec:
       containers:
-        - image: amarchanddargad/argo-web-frontend-images:web-frontend-a49e7fc252135b3cd5854814657d2e40b4876d04
-          name: argo-web-frontend-images
-          resources: {}
-status: {}
+      - image: amarchanddargad/argo-web-frontend-images:web-frontend-a49e7fc252135b3cd5854814657d2e40b4876d04
+        name: argo-web-frontend-images
+        env:
+        - name: CUSTOMER_SERVICE_URL
+          value: http://customers.default.svc
+        ports:
+        - containerPort: 80
+          name: web-frontend
