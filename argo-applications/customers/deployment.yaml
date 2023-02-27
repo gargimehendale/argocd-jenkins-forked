@@ -10,7 +10,6 @@ spec:
   selector:
     matchLabels:
       app: customers
-  strategy: {}
   template:
     metadata:
       labels:
