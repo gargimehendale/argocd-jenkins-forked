@@ -19,8 +19,8 @@ spec:
         app: web-frontend
     spec:
       containers:
-      - image: amarchanddargad/argo-web-frontend-images
-        name: argo-web-frontend-images
+      - image: gargimehendale/argocd-demo-web-frontend
+        name: argo-demo-web-frontend
         env:
         - name: CUSTOMER_SERVICE_URL
           value: http://customers.default.svc
