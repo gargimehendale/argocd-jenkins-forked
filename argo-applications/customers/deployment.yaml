@@ -16,7 +16,7 @@ spec:
         app: customers
     spec:
       containers:
-        - image: gargimehendale/argo-jenkins-customers:customers-ad179c52fb74b748971859f9ef597c1b5ec90140
+        - image: gargimehendale/argo-jenkins-customers:customers-5f46bf6eb8bd521cfd16635969aac15d8f5a916d
           name: argo-jenkins-customers
           imagePullPolicy: Always
           ports:
@@ -25,12 +25,12 @@ spec:
   strategy:
     canary:
       steps:
-      - setWeight: 10
-      - pause:
-          duration: 2m
-      - setWeight: 20
-      - pause:
-          duration: 2m
-      - setWeight: 50
-      - pause:
-          duration: 2m
+        - setWeight: 10
+        - pause:
+            duration: 2m
+        - setWeight: 20
+        - pause:
+            duration: 2m
+        - setWeight: 50
+        - pause:
+            duration: 2m
