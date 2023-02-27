@@ -18,7 +18,7 @@ spec:
         app: customers
     spec:
       containers:
-        - image: gargimehendale/argo-jenkins-customers
+        - image: gargimehendale/argo-jenkins-customers:customers-ad179c52fb74b748971859f9ef597c1b5ec90140
           name: argo-jenkins-customers
           ports:
             - containerPort: 3000
