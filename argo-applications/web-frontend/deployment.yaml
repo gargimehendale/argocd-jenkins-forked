@@ -18,7 +18,7 @@ spec:
         app: web-frontend
     spec:
       containers:
-        - image: gargimehendale/argocd-demo-web-frontend:web-frontend-ad179c52fb74b748971859f9ef597c1b5ec90140
+        - image: gargimehendale/argocd-demo-web-frontend:web-frontend-7d570406d90e8c549c201ddc1bd0deed98083cbe
           name: argocd-demo-web-frontend
           env:
             - name: CUSTOMER_SERVICE_URL
