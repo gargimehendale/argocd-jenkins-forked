@@ -1,25 +1,37 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
-  creationTimestamp: null
   labels:
     app: customers
   name: customers
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: customers
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: customers
     spec:
       containers:
         - image: gargimehendale/argo-jenkins-customers:customers-ad179c52fb74b748971859f9ef597c1b5ec90140
           name: argo-jenkins-customers
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
               name: customer-port
+  strategy:
+    canary:
+      steps:
+      - setWeight: 10
+      - pause:
+          duration: 2m
+      - setWeight: 20
+      - pause:
+          duration: 2m
+      - setWeight: 50
+      - pause:
+          duration: 2m
